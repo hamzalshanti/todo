@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:paddingLeft="16dp"
+        android:paddingRight="16dp"
+        android:orientation="vertical"
+        android:background="@color/primary"
+        android:gravity="center">
+
+        <TextView
+            android:id="@+id/textView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAlignment="center"
+            android:text="Create profile to start your first ToDo List"
+            android:textSize="32sp"
+            android:textColor="@color/white"
+            android:layout_marginBottom="30dp"
+            />
+
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="60sp"
+            android:hint="Your Name"
+            android:textColorHint="@color/white"
+            android:background="@color/whiteSmoke"
+            android:padding="9dp"
+            android:layout_marginBottom="30dp"
+            />
+
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="60sp"
+            android:hint="Password"
+            android:textColorHint="@color/white"
+            android:background="@color/whiteSmoke"
+            android:padding="9dp"
+            android:layout_marginBottom="30dp"
+            />
+
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="60sp"
+            android:hint="Your email address"
+            android:textColorHint="@color/white"
+            android:background="@color/whiteSmoke"
+            android:padding="9dp"
+            android:layout_marginBottom="30dp"
+            />
+
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="64sp"
+            android:text="Create your profile"
+            android:layout_marginBottom="30dp"
+            android:background="@color/orange"
+            />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Already have an acoount?"
+            android:layout_marginBottom="8dp"
+            />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Login"
+            android:textColor="@color/white"
+            />
+
+</LinearLayout>
+
+
