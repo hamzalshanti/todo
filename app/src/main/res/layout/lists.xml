@@ -1,0 +1,170 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:paddingLeft="16dp"
+        android:paddingRight="16dp"
+        android:paddingTop="90dp"
+        android:orientation="vertical"
+        android:background="@color/primary"
+        android:gravity="center_horizontal">
+
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="45sp"
+            android:hint="Search"
+            android:textColorHint="@color/white"
+            android:background="@color/whiteSmoke"
+            android:padding="9dp"
+            android:layout_marginBottom="73dp"
+            />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Lists :"
+            android:textColor="@color/white"
+            android:textSize="32sp"
+            android:layout_marginBottom="40dp"
+            />
+
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="45sp"
+            android:textColorHint="@color/white"
+            android:text="Create new list here"
+            android:textAlignment="viewStart"
+            android:backgroundTint="@color/whiteSmoke"
+            android:padding="9dp"
+            android:layout_marginBottom="40dp"
+            />
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/shape"
+            android:paddingVertical="16dp"
+            android:paddingHorizontal="22dp"
+            android:layout_gravity="center_vertical"
+            android:layout_marginBottom="34dp"
+            >
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Home"
+                android:textColor="@color/black"
+                android:textSize="19sp"
+                />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="3 tasks"
+                android:textColor="@color/black"
+                android:textSize="19sp"
+                android:layout_alignParentRight="true"
+
+                />
+
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/shape"
+            android:paddingVertical="16dp"
+            android:paddingHorizontal="22dp"
+            android:layout_gravity="center_vertical"
+            android:layout_marginBottom="34dp"
+            >
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Home"
+                android:textColor="@color/black"
+                android:textSize="19sp"
+                />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="3 tasks"
+                android:textColor="@color/black"
+                android:textSize="19sp"
+                android:layout_alignParentRight="true"
+
+                />
+
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/shape"
+            android:paddingVertical="16dp"
+            android:paddingHorizontal="22dp"
+            android:layout_gravity="center_vertical"
+            android:layout_marginBottom="34dp"
+            >
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Home"
+                android:textColor="@color/black"
+                android:textSize="19sp"
+                />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="3 tasks"
+                android:textColor="@color/black"
+                android:textSize="19sp"
+                android:layout_alignParentRight="true"
+
+                />
+
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/shape"
+            android:paddingVertical="16dp"
+            android:paddingHorizontal="22dp"
+            android:layout_gravity="center_vertical"
+            >
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Home"
+                android:textColor="@color/black"
+                android:textSize="19sp"
+                />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="3 tasks"
+                android:textColor="@color/black"
+                android:textSize="19sp"
+                android:layout_alignParentRight="true"
+
+                />
+
+        </RelativeLayout>
+
+
+
+
+    </LinearLayout>
+
+
+</RelativeLayout>
