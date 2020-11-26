@@ -11,4 +11,6 @@
     <color name="white">#FFFFFF</color>
     <color name="orange">#e67e22</color>
     <color name="muted">#95a5a6</color>
+    <color name="pink">#F56785</color>
+    <color name="blue_200">#88CEFF</color>
 </resources>

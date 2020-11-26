@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:paddingLeft="16dp"
+        android:paddingRight="16dp"
+        android:paddingTop="90dp"
+        android:orientation="vertical"
+        android:background="@color/primary"
+        android:gravity="center_horizontal">
+
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="45sp"
+            android:background="@color/whiteSmoke"
+            android:hint="Meet"
+            android:textColorHint="@color/white"
+            android:padding="9dp"
+            android:layout_marginBottom="40dp"
+            />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Personal list"
+            android:textColor="@color/white"
+            android:textSize="32sp"
+            android:layout_marginBottom="40dp"
+            />
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/shape"
+            android:paddingVertical="8dp"
+            android:paddingHorizontal="22dp"
+            android:layout_marginBottom="45dp"
+            >
+
+
+            <CheckBox
+                android:id="@+id/checkbox"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:button="@drawable/custom_checkbox"
+                android:layout_centerVertical="true"
+                android:textSize="16sp"
+                android:text="\tMeeting Joseph"
+                />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Personal"
+                android:background="@drawable/shape2"
+                android:textColor="@color/white"
+                android:padding="6dp"
+                android:textSize="12sp"
+                android:layout_alignParentEnd="true"
+                android:layout_centerVertical="true"
+                />
+
+        </RelativeLayout>
+
+
+
+</LinearLayout>
+
+

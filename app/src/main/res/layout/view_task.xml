@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingTop="90dp"
+    android:orientation="vertical"
+    android:background="@color/primary">
+
+    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:paddingLeft="16dp"
+        android:paddingRight="16dp"
+        android:paddingTop="20dp"
+        android:orientation="vertical"
+        android:background="@drawable/shape">
+
+
+        <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:gravity="center_vertical"
+            android:layout_marginBottom="26dp"
+            >
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Meet Joseph"
+            android:textStyle="bold"
+            android:textColor="#5A5760"
+            android:textSize="32sp"
+            />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="12sp"
+                android:text="Meet"
+                android:layout_marginLeft="10dp"
+                android:background="@drawable/shape3"
+                android:textColor="@color/white"
+                android:paddingHorizontal="10dp"
+
+                />
+
+        </LinearLayout>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="01 OCTOBER 2018, 10:00"
+            android:textColor="@color/muted"
+            android:textSize="16sp"
+            android:paddingBottom="40dp"
+            />
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="2dp"
+            android:background="#E5E5E5"
+            android:layout_marginBottom="40dp"
+            />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Description"
+            android:textStyle="bold"
+            android:textColor="#5A5760"
+            android:textSize="32sp"
+            android:layout_marginBottom="13dp"
+            />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Have to meet him because I want to show him my latest app design in person."
+            android:textColor="#5A5760"
+            android:paddingRight="50dp"
+            android:textSize="18sp"
+            android:layout_marginBottom="13dp"
+            />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Have to meet him because I want to show him my latest app design in person."
+            android:textColor="#5A5760"
+            android:paddingRight="50dp"
+            android:textSize="18sp"
+            android:layout_marginBottom="13dp"
+            />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Delete"
+            android:textColor="#e74c3c"
+            android:paddingRight="50dp"
+            android:textSize="18sp"
+            />
+
+    </LinearLayout>
+
+
+
+</LinearLayout>
