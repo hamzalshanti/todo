@@ -25,21 +25,23 @@
 
     <EditText
         android:layout_width="match_parent"
-        android:layout_height="60sp"
+        android:layout_height="wrap_content"
         android:hint="Your Name"
         android:textColorHint="@color/white"
-        android:background="@color/whiteSmoke"
-        android:padding="9dp"
+        android:background="@drawable/shape_alpha"
+        android:paddingVertical="15dp"
+        android:paddingLeft="15dp"
         android:layout_marginBottom="30dp"
         />
 
     <EditText
         android:layout_width="match_parent"
-        android:layout_height="60sp"
+        android:layout_height="wrap_content"
         android:hint="Your email address"
         android:textColorHint="@color/white"
-        android:background="@color/whiteSmoke"
-        android:padding="9dp"
+        android:background="@drawable/shape_alpha"
+        android:paddingVertical="15dp"
+        android:paddingLeft="15dp"
         android:layout_marginBottom="10dp"
         />
 

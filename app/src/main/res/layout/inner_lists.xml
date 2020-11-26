@@ -23,11 +23,12 @@
 
         <Button
             android:layout_width="match_parent"
-            android:layout_height="45sp"
+            android:layout_height="wrap_content"
             android:textColorHint="@color/white"
+            android:drawableLeft="@drawable/ic_baseline_add_24"
             android:text="Create new list here"
             android:textAlignment="viewStart"
-            android:backgroundTint="@color/whiteSmoke"
+            android:backgroundTint="@drawable/shape_alpha"
             android:padding="9dp"
             android:layout_marginBottom="40dp"
             />

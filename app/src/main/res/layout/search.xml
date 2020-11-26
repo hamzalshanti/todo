@@ -11,9 +11,10 @@
 
         <EditText
             android:layout_width="match_parent"
-            android:layout_height="45sp"
-            android:background="@color/whiteSmoke"
-            android:hint="Meet"
+            android:layout_height="wrap_content"
+            android:background="@drawable/shape_alpha"
+            android:drawableLeft="@drawable/ic_baseline_search_24"
+            android:hint="\tMeet"
             android:textColorHint="@color/white"
             android:padding="9dp"
             android:layout_marginBottom="40dp"
