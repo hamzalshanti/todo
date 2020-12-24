@@ -1,0 +1,25 @@
+
+
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@drawable/shape"
+    android:paddingVertical="8dp"
+    android:paddingHorizontal="13dp"
+    android:layout_marginBottom="34dp"
+    >
+
+    <CheckBox
+        android:id="@+id/checkbox"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_centerVertical="true"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true"
+        android:text="\tMeeting with client"
+        android:layout_marginRight="15dp"
+        android:layout_marginEnd="15dp"
+    />
+
+</LinearLayout>
+
