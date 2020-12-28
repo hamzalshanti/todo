@@ -17,31 +17,45 @@ import java.util.List;
 
 
 class ParentTaskAdapterEX extends RecyclerView.Adapter<ParentTaskAdapterEX.ViewHolder> {
-    List<ParentTask> tasks;
+    List<Category> categories;
+    ListItemClickListener mListItemClickListener;
+
     /**
      * Provide a reference to the type of views that you are using
      * (custom ViewHolder).
      */
-    public static class ViewHolder extends RecyclerView.ViewHolder {
+    public static class ViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
         TextView title, count;
-        public ViewHolder(View view) {
+        ListItemClickListener listItemClickListener;
+        public ViewHolder(View view, ListItemClickListener listItemClickListener) {
             super(view);
             // Define click listener for the ViewHolder's View
+            this.listItemClickListener = listItemClickListener;
 
             title = itemView.findViewById(R.id.parent_task_title);
             count = itemView.findViewById(R.id.parent_task_count);
+
+            view.setOnClickListener(this);
         }
 
-        public void setData(ParentTask task) {
+        public void setData(Category task) {
             title.setText(task.getTitle());
             count.setText("" + task.getCount());
+        }
+
+        @Override
+        public void onClick(View v) {
+            listItemClickListener.onListItemClick(getAdapterPosition());
         }
     }
 
 
-    public ParentTaskAdapterEX(List<ParentTask> tasks) {
-        this.tasks = tasks;
+    public ParentTaskAdapterEX(List<Category> categories, ListItemClickListener listItemClickListener) {
+        this.categories = categories;
+        this.mListItemClickListener = listItemClickListener;
    }
+
+
 
     // Create new views (invoked by the layout manager)
     @Override
@@ -50,7 +64,7 @@ class ParentTaskAdapterEX extends RecyclerView.Adapter<ParentTaskAdapterEX.ViewH
         View view = LayoutInflater.from(viewGroup.getContext())
                 .inflate(R.layout.activity_main_task, viewGroup, false);
 
-        return new ViewHolder(view);
+        return new ViewHolder(view, mListItemClickListener);
     }
 
     // Replace the contents of a view (invoked by the layout manager)
@@ -59,13 +73,24 @@ class ParentTaskAdapterEX extends RecyclerView.Adapter<ParentTaskAdapterEX.ViewH
 
         // Get element from your list at this position and replace the
         // contents of the view with that element
-         viewHolder.setData(tasks.get(position));
+         viewHolder.setData(categories.get(position));
+
+//         viewHolder.itemView.setOnClickListener(new View.OnClickListener() {
+//             @Override
+//             public void onClick(View v) {
+//
+//             }
+//         });
 
     }
 
     // Return the size of your dataset (invoked by the layout manager)
     @Override
     public int getItemCount() {
-        return tasks.size();
+        return categories.size();
+    }
+
+    interface ListItemClickListener {
+        void onListItemClick(int position);
     }
 }

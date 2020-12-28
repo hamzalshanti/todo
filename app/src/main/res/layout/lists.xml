@@ -30,16 +30,28 @@
             />
 
 
-        <Button
+
+
+        <EditText
+            android:id="@+id/category"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:textColor="@color/white"
             android:textColorHint="@color/white"
-            android:text="Create new list here"
-            android:drawableLeft="@drawable/ic_baseline_add_24"
-            android:textAlignment="viewStart"
-            android:padding="9dp"
-            android:layout_marginBottom="40dp"
+            android:background="@drawable/shape_alpha"
+            android:hint="Create Category"
             />
+
+        <Button
+            android:id="@+id/add_new_category"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColorHint="@color/white"
+            android:text="Create"
+            android:layout_gravity="start"
+            />
+
+
 
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/main_tasks_rv"
