@@ -1,6 +1,8 @@
 package com.example.todo;
+
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
@@ -13,58 +15,62 @@ import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
 
-public class SignIn extends AppCompatActivity  {
+public class SignUp extends AppCompatActivity{
 
     private FirebaseAuth mAuth;
-    TextView email, password, goToSignUp;
-    Button signInBtn;
+    TextView email, password, goToSignIn;
+    Button signUpBtn;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.sing_in);
-
+        setContentView(R.layout.sign_up);
 
         mAuth = FirebaseAuth.getInstance();
-        email = findViewById(R.id.login_email);
-        password = findViewById(R.id.login_password);
-        signInBtn = findViewById(R.id.sign_in);
-        goToSignUp = findViewById(R.id.go_to_sign_up);
 
-        goToSignUp.setOnClickListener(new View.OnClickListener() {
+        email = findViewById(R.id.register_email);
+        password = findViewById(R.id.register_password);
+        signUpBtn = findViewById(R.id.sign_up);
+        goToSignIn = findViewById(R.id.go_to_sign_in);
+
+        signUpBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(SignIn.this, SignUp.class);
+                SignUp.this.makeSignUp(email.getText().toString(), password.getText().toString());
+            }
+        });
+
+        goToSignIn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(SignUp.this, SignIn.class);
                 startActivity(intent);
             }
         });
 
-        signInBtn.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                SignIn.this.makeSignIn(email.getText().toString(), password.getText().toString());
-            }
-        });
     }
 
-    private void makeSignIn(String email, String password) {
-        mAuth.signInWithEmailAndPassword(email, password)
+    private void makeSignUp(String email, String password) {
+        mAuth.createUserWithEmailAndPassword(email, password)
                 .addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
                     @Override
                     public void onComplete(@NonNull Task<AuthResult> task) {
                         if (task.isSuccessful()) {
                             // Sign in success, update UI with the signed-in user's information
-                            Toast.makeText(SignIn.this, "Login successfully.",
+                            Toast.makeText(SignUp.this, "Register successfully.",
                                     Toast.LENGTH_SHORT).show();
-                            Intent intent = new Intent(SignIn.this, Lists.class);
+                            Intent intent = new Intent(SignUp.this, SignIn.class);
                             startActivity(intent);
                         } else {
-                            Toast.makeText(SignIn.this, "Authentication failed.",
+                            Toast.makeText(SignUp.this, "Authentication failed.",
                                     Toast.LENGTH_SHORT).show();
                         }
                     }
                 });
     }
 }
+
 
