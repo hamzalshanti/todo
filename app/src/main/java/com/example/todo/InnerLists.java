@@ -25,7 +25,7 @@ import com.google.firebase.database.ValueEventListener;
 import java.util.ArrayList;
 import java.util.List;
 
-public class InnerLists extends AppCompatActivity {
+public class InnerLists extends AppCompatActivity implements TaskAdapterEx.ListItemClickListener{
     static List<TaskItem> tasksList = new ArrayList<>();
     private FirebaseAuth mAuth;
     RecyclerView tasks_rv;
@@ -84,8 +84,16 @@ public class InnerLists extends AppCompatActivity {
 
         tasks_rv = findViewById(R.id.tasks_rv);
         tasks_rv.setLayoutManager(new LinearLayoutManager(this));
-        taskAdapter = new TaskAdapterEx(this , tasksList);
+        taskAdapter = new TaskAdapterEx(this , tasksList, this);
         tasks_rv.setAdapter(taskAdapter);
     }
 
+    @Override
+    public void onListItemClick(int position) {
+        Intent intent = new Intent(InnerLists.this, ViewTask.class);
+        intent.putExtra("TASK_ID", tasksList.get(position).getId());
+        intent.putExtra("Task_Title", tasksList.get(position).getTitle());
+        intent.putExtra("Task_Description", tasksList.get(position).getDescription());
+        startActivity(intent);
+    }
 }

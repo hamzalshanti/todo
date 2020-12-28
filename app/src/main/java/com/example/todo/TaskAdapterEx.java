@@ -18,10 +18,12 @@ public class TaskAdapterEx extends RecyclerView.Adapter<TaskAdapterEx.TaskVh> {
 
     Context context;
     List<TaskItem> tasks;
+    ListItemClickListener mListItemClickListener;
 
-    public TaskAdapterEx(Context context, List<TaskItem> tasks) {
+    public TaskAdapterEx(Context context, List<TaskItem> tasks, ListItemClickListener listItemClickListener) {
         this.context = context;
         this.tasks = tasks;
+        this.mListItemClickListener = listItemClickListener;
     }
     @Override
     public int getItemCount() {
@@ -29,27 +31,33 @@ public class TaskAdapterEx extends RecyclerView.Adapter<TaskAdapterEx.TaskVh> {
     }
 
 
-    class TaskVh extends RecyclerView.ViewHolder {
-
+    class TaskVh extends RecyclerView.ViewHolder implements View.OnClickListener{
+        ListItemClickListener listItemClickListener;
         TextView listType;
         CheckBox checkBox;
 
-        public TaskVh(@NonNull View itemView) {
+        public TaskVh(@NonNull View itemView, ListItemClickListener listItemClickListener) {
             super(itemView);
+            this.listItemClickListener = listItemClickListener;
             checkBox = itemView.findViewById(R.id.checkbox);
-           // listType = itemView.findViewById(R.id.checkboxValue);
+            itemView.setOnClickListener(this);
         }
 
         public void setData(final TaskItem task) {
             checkBox.setText(task.getTitle());
             checkBox.setSelected(task.getIsChecked());
         }
+
+        @Override
+        public void onClick(View v) {
+            listItemClickListener.onListItemClick(getAdapterPosition());
+        }
     }
     @NonNull
     @Override
     public TaskVh onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         View view = LayoutInflater.from(context).inflate(R.layout.activity_task, parent, false); //view of item
-        return new TaskVh(view);
+        return new TaskVh(view, mListItemClickListener);
     }
 
     @Override
@@ -77,5 +85,8 @@ public class TaskAdapterEx extends RecyclerView.Adapter<TaskAdapterEx.TaskVh> {
         });
     }
 
+    interface ListItemClickListener {
+        void onListItemClick(int position);
+    }
 
 }
