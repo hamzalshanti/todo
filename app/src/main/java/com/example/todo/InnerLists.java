@@ -32,7 +32,9 @@ public class InnerLists extends AppCompatActivity implements TaskAdapterEx.ListI
     TaskAdapterEx taskAdapter;
     Button addNewTask;
     EditText taskTitle, taskDescription;
-    String categoryId;
+    String categoryId, categoryTitle;
+    Integer categoryCount = 0;
+    boolean flag = true;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -40,6 +42,7 @@ public class InnerLists extends AppCompatActivity implements TaskAdapterEx.ListI
 
         Bundle extras = getIntent().getExtras();
         categoryId = extras.getString("CATEGORY_ID");
+        categoryTitle = extras.getString("CATEGORY_TITLE");
 
         addNewTask = findViewById(R.id.add_new_task);
         taskTitle = findViewById(R.id.task_title);
@@ -57,10 +60,44 @@ public class InnerLists extends AppCompatActivity implements TaskAdapterEx.ListI
                 String taskId = FirebaseDatabase.getInstance().getReference("Users").child(uid).child("category").child(categoryId).child("tasks").push().getKey();
                 newTask.setId(taskId);
                 FirebaseDatabase.getInstance().getReference("Users").child(uid).child("category").child(categoryId).child("tasks").child(taskId).setValue(newTask);
+
+
+
+                FirebaseDatabase.getInstance().getReference("Users").child(uid).child("category")
+                        .addValueEventListener(new ValueEventListener() {
+                    @Override
+                    public void onDataChange(DataSnapshot dataSnapshot) {
+                        // This method is called once with the initial value and again
+                        // whenever data at this location is updated.
+                        for(DataSnapshot snapshot: dataSnapshot.getChildren() ){
+                            Category categoryItem =  snapshot.getValue(Category.class);
+                            if(categoryItem.getId().compareTo(categoryId) == 0 && flag){
+                                categoryCount = categoryItem.getCount();
+                                FirebaseDatabase.getInstance().getReference("Users").child(uid).child("category").child(categoryId).child("count").setValue(++categoryCount);
+                                flag = false;
+                                System.out.println("--------- Test1 Count ---------  " + categoryCount);
+                                break;
+                            }
+
+                        }
+
+                    }
+
+                    @Override
+                    public void onCancelled(DatabaseError error) {
+                        // Failed to read value
+                    }
+                });
+
+                // change count when add task
+
                 Toast.makeText(InnerLists.this,"Task has been added successfully", Toast.LENGTH_SHORT).show();
+                flag = true;
                 taskTitle.setText("");
                 taskDescription.setText("");
             }
+
+
         });
 
         mAuth= FirebaseAuth.getInstance();
@@ -94,6 +131,7 @@ public class InnerLists extends AppCompatActivity implements TaskAdapterEx.ListI
         intent.putExtra("TASK_ID", tasksList.get(position).getId());
         intent.putExtra("Task_Title", tasksList.get(position).getTitle());
         intent.putExtra("Task_Description", tasksList.get(position).getDescription());
+        intent.putExtra("CATEGORY_TITLE", categoryTitle);
         startActivity(intent);
     }
 }

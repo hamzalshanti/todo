@@ -89,6 +89,7 @@ public class Lists extends AppCompatActivity implements ParentTaskAdapterEX.List
     public void onListItemClick(int position) {
         Intent intent = new Intent(Lists.this, InnerLists.class);
         intent.putExtra("CATEGORY_ID", categoriesList.get(position).getId());
+        intent.putExtra("CATEGORY_TITLE", categoriesList.get(position).getTitle());
         startActivity(intent);
     }
 }

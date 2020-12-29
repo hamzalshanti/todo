@@ -7,8 +7,8 @@ import androidx.appcompat.app.AppCompatActivity;
 
 public class ViewTask extends AppCompatActivity {
 
-    TextView title, description;
-    String intentTitle, intentDescription, intentId;
+    TextView title, description, catTitle;
+    String intentTitle, intentDescription, intentId, intentCategory;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -19,13 +19,16 @@ public class ViewTask extends AppCompatActivity {
         intentTitle = extras.getString("Task_Title");
         intentDescription = extras.getString("Task_Description");
         intentId = extras.getString("Task_ID");
+        intentCategory = extras.getString("CATEGORY_TITLE");
 
         title = findViewById(R.id.view_task_title);
         description = findViewById(R.id.view_task_description);
+        catTitle = findViewById(R.id.cat_title);
 
 
         title.setText(intentTitle);
         description.setText(intentDescription);
+        catTitle.setText(intentCategory);
 
     }
 }
