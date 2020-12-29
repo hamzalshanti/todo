@@ -12,18 +12,24 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.database.FirebaseDatabase;
+
 import java.util.List;
 
 public class TaskAdapterEx extends RecyclerView.Adapter<TaskAdapterEx.TaskVh> {
-
+    private FirebaseAuth mAuth;
     Context context;
     List<TaskItem> tasks;
     ListItemClickListener mListItemClickListener;
+    String categoryId;
 
-    public TaskAdapterEx(Context context, List<TaskItem> tasks, ListItemClickListener listItemClickListener) {
+    public TaskAdapterEx(Context context, List<TaskItem> tasks, ListItemClickListener listItemClickListener, String categoryId) {
         this.context = context;
         this.tasks = tasks;
         this.mListItemClickListener = listItemClickListener;
+        this.categoryId = categoryId;
     }
     @Override
     public int getItemCount() {
@@ -71,6 +77,23 @@ public class TaskAdapterEx extends RecyclerView.Adapter<TaskAdapterEx.TaskVh> {
         holder.checkBox.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+
+
+
+
+                mAuth = FirebaseAuth.getInstance();
+                FirebaseUser user = mAuth.getCurrentUser();
+                String uid = user.getUid();
+
+
+                TaskItem newTask= new TaskItem();
+                newTask.setTitle(taskEntity.getTitle());
+                newTask.setIsChecked(isChecked);
+                newTask.setId(taskEntity.id);
+                FirebaseDatabase.getInstance().getReference("Users").child(uid).child("category").child(categoryId).child("tasks").child(taskEntity.getId()).setValue(newTask);
+
+                
+
                 taskEntity.setIsChecked(isChecked);
                 holder.checkBox.setSelected(isChecked);
                 if(isChecked){

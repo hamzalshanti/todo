@@ -121,7 +121,7 @@ public class InnerLists extends AppCompatActivity implements TaskAdapterEx.ListI
 
         tasks_rv = findViewById(R.id.tasks_rv);
         tasks_rv.setLayoutManager(new LinearLayoutManager(this));
-        taskAdapter = new TaskAdapterEx(this , tasksList, this);
+        taskAdapter = new TaskAdapterEx(this , tasksList, this, categoryId);
         tasks_rv.setAdapter(taskAdapter);
     }
 
@@ -129,9 +129,10 @@ public class InnerLists extends AppCompatActivity implements TaskAdapterEx.ListI
     public void onListItemClick(int position) {
         Intent intent = new Intent(InnerLists.this, ViewTask.class);
         intent.putExtra("TASK_ID", tasksList.get(position).getId());
-        intent.putExtra("Task_Title", tasksList.get(position).getTitle());
-        intent.putExtra("Task_Description", tasksList.get(position).getDescription());
+        intent.putExtra("TASK_Title", tasksList.get(position).getTitle());
+        intent.putExtra("TASK_Description", tasksList.get(position).getDescription());
         intent.putExtra("CATEGORY_TITLE", categoryTitle);
+        intent.putExtra("CATEGORY_ID", categoryId);
         startActivity(intent);
     }
 }
