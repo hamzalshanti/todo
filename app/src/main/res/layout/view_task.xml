@@ -2,7 +2,7 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:paddingTop="90dp"
+    android:paddingTop="50dp"
     android:orientation="vertical"
     android:background="@color/primary">
 
@@ -87,6 +87,12 @@
             android:layout_marginBottom="13dp"
             />
 
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="2dp"
+            android:layout_weight="1"
+            />
+
         <TextView
             android:id="@+id/delete"
             android:layout_width="wrap_content"
@@ -95,6 +101,7 @@
             android:textColor="#e74c3c"
             android:paddingRight="50dp"
             android:textSize="18sp"
+            android:layout_marginBottom="50dp"
             />
 
 
