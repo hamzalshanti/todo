@@ -9,21 +9,21 @@
         android:background="@color/primary"
         android:gravity="center_horizontal">
 
-        <EditText
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:drawableLeft="@drawable/ic_baseline_search_24"
-            android:hint="\tsearch"
-            android:textColorHint="@color/white"
-            android:background="@drawable/shape_alpha"
-            android:padding="9dp"
-            android:layout_marginBottom="73dp"
-            />
+<!--        <EditText-->
+<!--            android:layout_width="match_parent"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:drawableLeft="@drawable/ic_baseline_search_24"-->
+<!--            android:hint="\tsearch"-->
+<!--            android:textColorHint="@color/white"-->
+<!--            android:background="@drawable/shape_alpha"-->
+<!--            android:padding="9dp"-->
+<!--            android:layout_marginBottom="73dp"-->
+<!--            />-->
 
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Lists :"
+            android:text="Lists:"
             android:textColor="@color/white"
             android:textSize="32sp"
             android:layout_marginBottom="40dp"
@@ -38,16 +38,19 @@
             android:layout_height="wrap_content"
             android:textColor="@color/white"
             android:textColorHint="@color/white"
-            android:background="@drawable/shape_alpha"
-            android:hint="Create Category"
+            android:paddingVertical="10dp"
+            android:backgroundTint="@color/white"
+            android:hint="Enter List Name"
             />
 
         <Button
             android:id="@+id/add_new_category"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:drawableLeft="@drawable/ic_baseline_add_24"
             android:textColorHint="@color/white"
-            android:text="Create"
+            android:backgroundTint="@color/orange"
+            android:text="Create List"
             android:layout_gravity="start"
             />
 

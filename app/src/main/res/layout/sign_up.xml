@@ -49,6 +49,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="Password"
+            android:inputType="textPassword"
             android:textColorHint="@color/white"
             android:textColor="@color/white"
             android:background="@drawable/shape_alpha"
@@ -64,7 +65,7 @@
             android:layout_height="64sp"
             android:text="Create your profile"
             android:layout_marginBottom="30dp"
-            android:background="@color/orange"
+            android:backgroundTint="@color/orange"
             />
 
         <TextView

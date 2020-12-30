@@ -7,6 +7,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.EditText;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
@@ -32,8 +33,9 @@ public class InnerLists extends AppCompatActivity implements TaskAdapterEx.ListI
     TaskAdapterEx taskAdapter;
     Button addNewTask;
     EditText taskTitle, taskDescription;
+    TextView relateCategory, deleteList;
     String categoryId, categoryTitle;
-    Integer categoryCount = 0;
+    Integer categoryCount;
     boolean flag = true;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -47,6 +49,10 @@ public class InnerLists extends AppCompatActivity implements TaskAdapterEx.ListI
         addNewTask = findViewById(R.id.add_new_task);
         taskTitle = findViewById(R.id.task_title);
         taskDescription = findViewById(R.id.task_description);
+        deleteList = findViewById(R.id.delete_list);
+        relateCategory = findViewById(R.id.relate_category);
+        relateCategory.setText(categoryTitle);
+
         addNewTask.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View v) {
@@ -75,7 +81,6 @@ public class InnerLists extends AppCompatActivity implements TaskAdapterEx.ListI
                                 categoryCount = categoryItem.getCount();
                                 FirebaseDatabase.getInstance().getReference("Users").child(uid).child("category").child(categoryId).child("count").setValue(++categoryCount);
                                 flag = false;
-                                System.out.println("--------- Test1 Count ---------  " + categoryCount);
                                 break;
                             }
 
@@ -95,6 +100,20 @@ public class InnerLists extends AppCompatActivity implements TaskAdapterEx.ListI
                 flag = true;
                 taskTitle.setText("");
                 taskDescription.setText("");
+            }
+
+
+        });
+
+        deleteList.setOnClickListener(new View.OnClickListener(){
+            @Override
+            public void onClick(View v) {
+                mAuth = FirebaseAuth.getInstance();
+                FirebaseUser user = mAuth.getCurrentUser();
+                String uid = user.getUid();
+                FirebaseDatabase.getInstance().getReference("Users").child(uid).child("category").child(categoryId).removeValue();
+                Toast.makeText(InnerLists.this,"Delete Done", Toast.LENGTH_SHORT).show();
+                finish();
             }
 
 

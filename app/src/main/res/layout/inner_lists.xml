@@ -11,24 +11,53 @@
         android:gravity="center_horizontal">
 
 
-        <TextView
+        <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Personal list"
+            android:orientation="horizontal"
+            android:layout_marginBottom="40dp"
+            >
+        <TextView
+            android:id="@+id/relate_category"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Personal"
             android:textColor="@color/white"
             android:textSize="32sp"
-            android:layout_marginBottom="40dp"
             />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text=" List"
+            android:textColor="@color/white"
+            android:textSize="32sp"
+            />
+
+            <View
+                android:layout_width="wrap_content"
+                android:layout_height="2dp"
+                android:layout_weight="1"/>
+
+            <TextView
+                android:id="@+id/delete_list"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Delete"
+                android:textColor="@color/muted"
+                android:textSize="20sp"
+                />
+        </LinearLayout>
 
         <EditText
             android:id="@+id/task_title"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:textColor="@color/white"
-            android:textColorHint="@color/white"
-            android:background="@drawable/shape_alpha"
-            android:hint="Task title"
-            android:layout_marginBottom="5dp"
+            android:textColorHint="@color/hint"
+            android:backgroundTint="@color/white"
+            android:hint="Task Title"
+            android:layout_marginBottom="10dp"
         />
 
          <EditText
@@ -36,22 +65,21 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:textColor="@color/white"
-            android:textColorHint="@color/white"
-            android:background="@drawable/shape_alpha"
-            android:hint="Task description"
-             android:layout_marginBottom="5dp"
+            android:textColorHint="@color/hint"
+             android:backgroundTint="@color/white"
+            android:hint="Task Description"
+             android:layout_marginBottom="10dp"
         />
 
         <Button
             android:id="@+id/add_new_task"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:textColorHint="@color/white"
             android:drawableLeft="@drawable/ic_baseline_add_24"
+            android:textColorHint="@color/white"
+            android:backgroundTint="@color/orange"
             android:text="Create Task"
-            android:textAlignment="viewStart"
-            android:padding="9dp"
-            android:layout_marginBottom="40dp"
+            android:layout_gravity="start"
             />
 
         <androidx.recyclerview.widget.RecyclerView
