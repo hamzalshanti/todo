@@ -19,7 +19,7 @@ public class ViewTask extends AppCompatActivity {
     FirebaseAuth mAuth;
     TextView title, description, catTitle, delete;
     String intentTitle, intentDescription, intentId, intentCategory, intentCategoryId;
-    Integer categoryCount;
+    Count countInstance;
     boolean flag = true;
 
     @Override
@@ -50,39 +50,9 @@ public class ViewTask extends AppCompatActivity {
                 FirebaseUser user = mAuth.getCurrentUser();
                 String uid = user.getUid();
                 FirebaseDatabase.getInstance().getReference("Users").child(uid).child("category").child(intentCategoryId).child("tasks").child(intentId).removeValue();
-
-
-
-
-                FirebaseDatabase.getInstance().getReference("Users").child(uid).child("category")
-                        .addValueEventListener(new ValueEventListener() {
-                            @Override
-                            public void onDataChange(DataSnapshot dataSnapshot) {
-                                // This method is called once with the initial value and again
-                                // whenever data at this location is updated.
-                                for(DataSnapshot snapshot: dataSnapshot.getChildren() ){
-                                    Category categoryItem =  snapshot.getValue(Category.class);
-                                    if(categoryItem.getId().compareTo(intentCategoryId) == 0 && flag){
-                                        categoryCount = categoryItem.getCount();
-                                        FirebaseDatabase.getInstance().getReference("Users").child(uid).child("category").child(intentCategoryId).child("count").setValue(--categoryCount);
-                                        flag = false;
-                                        break;
-                                    }
-
-                                }
-
-                                finish();
-
-
-                            }
-
-                            @Override
-                            public void onCancelled(DatabaseError error) {
-                                // Failed to read value
-                            }
-                        });
-
-
+                countInstance = new Count(uid, intentCategoryId, intentId);
+                countInstance.setListsCount("-");
+                finish();
             }
         });
 

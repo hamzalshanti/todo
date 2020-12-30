@@ -26,17 +26,16 @@ import com.google.firebase.database.ValueEventListener;
 import java.util.ArrayList;
 import java.util.List;
 
-public class InnerLists extends AppCompatActivity implements TaskAdapterEx.ListItemClickListener{
+public class InnerLists extends AppCompatActivity implements InnerListsAdapter.ListItemClickListener{
     static List<TaskItem> tasksList = new ArrayList<>();
     private FirebaseAuth mAuth;
     RecyclerView tasks_rv;
-    TaskAdapterEx taskAdapter;
+    InnerListsAdapter taskAdapter;
     Button addNewTask;
     EditText taskTitle, taskDescription;
     TextView relateCategory, deleteList;
     String categoryId, categoryTitle;
-    Integer categoryCount;
-    boolean flag = true;
+    Count countInstance;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -67,37 +66,12 @@ public class InnerLists extends AppCompatActivity implements TaskAdapterEx.ListI
                 newTask.setId(taskId);
                 FirebaseDatabase.getInstance().getReference("Users").child(uid).child("category").child(categoryId).child("tasks").child(taskId).setValue(newTask);
 
+                countInstance = new Count(uid, categoryId, taskId);
+                countInstance.setListsCount("+");
 
 
-                FirebaseDatabase.getInstance().getReference("Users").child(uid).child("category")
-                        .addValueEventListener(new ValueEventListener() {
-                    @Override
-                    public void onDataChange(DataSnapshot dataSnapshot) {
-                        // This method is called once with the initial value and again
-                        // whenever data at this location is updated.
-                        for(DataSnapshot snapshot: dataSnapshot.getChildren() ){
-                            Category categoryItem =  snapshot.getValue(Category.class);
-                            if(categoryItem.getId().compareTo(categoryId) == 0 && flag){
-                                categoryCount = categoryItem.getCount();
-                                FirebaseDatabase.getInstance().getReference("Users").child(uid).child("category").child(categoryId).child("count").setValue(++categoryCount);
-                                flag = false;
-                                break;
-                            }
-
-                        }
-
-                    }
-
-                    @Override
-                    public void onCancelled(DatabaseError error) {
-                        // Failed to read value
-                    }
-                });
-
-                // change count when add task
 
                 Toast.makeText(InnerLists.this,"Task has been added successfully", Toast.LENGTH_SHORT).show();
-                flag = true;
                 taskTitle.setText("");
                 taskDescription.setText("");
             }
@@ -140,7 +114,7 @@ public class InnerLists extends AppCompatActivity implements TaskAdapterEx.ListI
 
         tasks_rv = findViewById(R.id.tasks_rv);
         tasks_rv.setLayoutManager(new LinearLayoutManager(this));
-        taskAdapter = new TaskAdapterEx(this , tasksList, this, categoryId);
+        taskAdapter = new InnerListsAdapter(this , tasksList, this, categoryId);
         tasks_rv.setAdapter(taskAdapter);
     }
 

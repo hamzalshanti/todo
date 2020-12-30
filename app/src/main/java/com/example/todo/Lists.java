@@ -26,11 +26,11 @@ import com.google.firebase.database.ValueEventListener;
 import java.util.ArrayList;
 import java.util.List;
 
-public class Lists extends AppCompatActivity implements ParentTaskAdapterEX.ListItemClickListener {
+public class Lists extends AppCompatActivity implements ListsAdapter.ListItemClickListener {
     static List<Category> categoriesList = new ArrayList<>();
     private FirebaseAuth mAuth;
     RecyclerView parent_task_rv;
-    ParentTaskAdapterEX taskAdapter;
+    ListsAdapter taskAdapter;
     Button addNewCategory;
     EditText category;
 
@@ -81,7 +81,7 @@ public class Lists extends AppCompatActivity implements ParentTaskAdapterEX.List
                 });
         parent_task_rv = findViewById(R.id.main_tasks_rv);
         parent_task_rv.setLayoutManager(new LinearLayoutManager(this));
-        taskAdapter = new ParentTaskAdapterEX(categoriesList, this);
+        taskAdapter = new ListsAdapter(categoriesList, this);
         parent_task_rv.setAdapter(taskAdapter);
     }
 

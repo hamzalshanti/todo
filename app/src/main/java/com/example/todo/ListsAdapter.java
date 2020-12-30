@@ -16,7 +16,7 @@ import java.util.List;
 
 
 
-class ParentTaskAdapterEX extends RecyclerView.Adapter<ParentTaskAdapterEX.ViewHolder> {
+class ListsAdapter extends RecyclerView.Adapter<ListsAdapter.ViewHolder> {
     List<Category> categories;
     ListItemClickListener mListItemClickListener;
 
@@ -50,7 +50,7 @@ class ParentTaskAdapterEX extends RecyclerView.Adapter<ParentTaskAdapterEX.ViewH
     }
 
 
-    public ParentTaskAdapterEX(List<Category> categories, ListItemClickListener listItemClickListener) {
+    public ListsAdapter(List<Category> categories, ListItemClickListener listItemClickListener) {
         this.categories = categories;
         this.mListItemClickListener = listItemClickListener;
    }

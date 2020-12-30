@@ -18,14 +18,14 @@ import com.google.firebase.database.FirebaseDatabase;
 
 import java.util.List;
 
-public class TaskAdapterEx extends RecyclerView.Adapter<TaskAdapterEx.TaskVh> {
+public class InnerListsAdapter extends RecyclerView.Adapter<InnerListsAdapter.TaskVh> {
     private FirebaseAuth mAuth;
     Context context;
     List<TaskItem> tasks;
     ListItemClickListener mListItemClickListener;
     String categoryId;
 
-    public TaskAdapterEx(Context context, List<TaskItem> tasks, ListItemClickListener listItemClickListener, String categoryId) {
+    public InnerListsAdapter(Context context, List<TaskItem> tasks, ListItemClickListener listItemClickListener, String categoryId) {
         this.context = context;
         this.tasks = tasks;
         this.mListItemClickListener = listItemClickListener;
