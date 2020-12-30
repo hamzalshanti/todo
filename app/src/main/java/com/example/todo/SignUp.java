@@ -36,7 +36,6 @@ public class SignUp extends AppCompatActivity{
         setContentView(R.layout.sign_up);
 
         mAuth = FirebaseAuth.getInstance();
-
         email = findViewById(R.id.register_email);
         password = findViewById(R.id.register_password);
         signUpBtn = findViewById(R.id.sign_up);
@@ -68,10 +67,7 @@ public class SignUp extends AppCompatActivity{
                             FirebaseUser user = mAuth.getCurrentUser();
                             String uid = user.getUid();
 
-                            // Write a message to the database
-//                            FirebaseDatabase database = FirebaseDatabase.getInstance();
-//                            DatabaseReference myRef = database.getReference("User");
-//                             myRef.setValue("Hello, World!");
+
                             Map<String,Object> data = new HashMap<>();
                             data.put("uid",uid);
                             FirebaseDatabase.getInstance().getReference("Users").child(uid).setValue(data)

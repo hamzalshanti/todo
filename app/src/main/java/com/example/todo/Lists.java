@@ -44,6 +44,18 @@ public class Lists extends AppCompatActivity implements ListsAdapter.ListItemCli
         category = findViewById(R.id.category);
 
 
+        findViewById(R.id.logout).setOnClickListener(new View.OnClickListener(){
+            @Override
+            public void onClick(View v) {
+                FirebaseAuth.getInstance().signOut();
+                Toast.makeText(Lists.this,"signed out", Toast.LENGTH_SHORT).show();
+                Intent intent = new Intent(Lists.this, SignIn.class);
+                startActivity(intent);
+
+            }
+        });
+
+
         addNewCategory.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View v) {

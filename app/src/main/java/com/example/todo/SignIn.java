@@ -13,6 +13,7 @@ import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
 
 public class SignIn extends AppCompatActivity  {
 
@@ -27,6 +28,13 @@ public class SignIn extends AppCompatActivity  {
 
 
         mAuth = FirebaseAuth.getInstance();
+        FirebaseUser user = mAuth.getCurrentUser();
+        if ( user != null)
+        {
+            Intent intent = new Intent(SignIn.this , Lists.class);
+            startActivity(intent);
+        }
+
         email = findViewById(R.id.login_email);
         password = findViewById(R.id.login_password);
         signInBtn = findViewById(R.id.sign_in);
