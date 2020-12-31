@@ -24,6 +24,7 @@ import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 public class InnerLists extends AppCompatActivity implements InnerListsAdapter.ListItemClickListener{
@@ -61,6 +62,7 @@ public class InnerLists extends AppCompatActivity implements InnerListsAdapter.L
                 TaskItem newTask = new TaskItem();
                 newTask.setTitle(taskTitle.getText().toString());
                 newTask.setDescription(taskDescription.getText().toString());
+                newTask.setDate(new Date());
                 newTask.setIsChecked(false);
                 String taskId = FirebaseDatabase.getInstance().getReference("Users").child(uid).child("category").child(categoryId).child("tasks").push().getKey();
                 newTask.setId(taskId);
@@ -126,6 +128,7 @@ public class InnerLists extends AppCompatActivity implements InnerListsAdapter.L
         intent.putExtra("TASK_Description", tasksList.get(position).getDescription());
         intent.putExtra("CATEGORY_TITLE", categoryTitle);
         intent.putExtra("CATEGORY_ID", categoryId);
+        intent.putExtra("DATE", tasksList.get(position).getDate().toString());
         startActivity(intent);
     }
 }

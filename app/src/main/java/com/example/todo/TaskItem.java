@@ -1,7 +1,11 @@
 package com.example.todo;
 
+import java.text.SimpleDateFormat;
+import java.util.Date;
+
 public class TaskItem {
     String id, title, Description;
+    Date date;
     Boolean isChecked;
 
     public TaskItem() {
@@ -38,5 +42,13 @@ public class TaskItem {
 
     public void setIsChecked(Boolean isChecked) {
         this.isChecked = isChecked;
+    }
+
+    public void setDate(Date date) {
+        this.date = date;
+    }
+
+    public Date getDate() {
+        return this.date;
     }
 }

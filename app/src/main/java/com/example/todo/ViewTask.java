@@ -17,8 +17,8 @@ import com.google.firebase.database.ValueEventListener;
 public class ViewTask extends AppCompatActivity {
 
     FirebaseAuth mAuth;
-    TextView title, description, catTitle, delete;
-    String intentTitle, intentDescription, intentId, intentCategory, intentCategoryId;
+    TextView title, description, catTitle, delete, date, edit;
+    String intentTitle, intentDescription, intentId, intentCategory, intentCategoryId, inDate;
     Count countInstance;
     boolean flag = true;
 
@@ -33,15 +33,19 @@ public class ViewTask extends AppCompatActivity {
         intentId = extras.getString("TASK_ID");
         intentCategory = extras.getString("CATEGORY_TITLE");
         intentCategoryId = extras.getString("CATEGORY_ID");
+        inDate = extras.getString("DATE");
 
         title = findViewById(R.id.view_task_title);
         description = findViewById(R.id.view_task_description);
         catTitle = findViewById(R.id.cat_title);
+        date = findViewById(R.id.date);
         delete = findViewById(R.id.delete);
+        edit = findViewById(R.id.edit);
 
         title.setText(intentTitle);
         description.setText(intentDescription);
         catTitle.setText(intentCategory);
+        date.setText(inDate);
 
         delete.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -53,6 +57,18 @@ public class ViewTask extends AppCompatActivity {
                 countInstance = new Count(uid, intentCategoryId, intentId);
                 countInstance.setListsCount("-");
                 finish();
+            }
+        });
+
+        edit.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(android.view.View v) {
+                Intent intent = new Intent(ViewTask.this, Edit.class);
+                intent.putExtra("TASK_ID", intentId);
+                intent.putExtra("TASK_Title", intentTitle);
+                intent.putExtra("TASK_Description", intentDescription);
+                intent.putExtra("CATEGORY_ID", intentCategoryId);
+                startActivity(intent);
             }
         });
 

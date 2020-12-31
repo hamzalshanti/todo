@@ -88,6 +88,8 @@ public class InnerListsAdapter extends RecyclerView.Adapter<InnerListsAdapter.Ta
 
                 TaskItem newTask= new TaskItem();
                 newTask.setTitle(taskEntity.getTitle());
+                newTask.setDescription(taskEntity.getDescription());
+                newTask.setDate(taskEntity.getDate());
                 newTask.setIsChecked(isChecked);
                 newTask.setId(taskEntity.id);
                 FirebaseDatabase.getInstance().getReference("Users").child(uid).child("category").child(categoryId).child("tasks").child(taskEntity.getId()).setValue(newTask);

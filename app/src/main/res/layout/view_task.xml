@@ -50,6 +50,7 @@
         </LinearLayout>
 
         <TextView
+            android:id="@+id/date"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="01 OCTOBER 2018, 10:00"
@@ -93,16 +94,31 @@
             android:layout_weight="1"
             />
 
-        <TextView
-            android:id="@+id/delete"
-            android:layout_width="wrap_content"
+        <LinearLayout
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Delete"
-            android:textColor="#e74c3c"
-            android:paddingRight="50dp"
-            android:textSize="18sp"
+            android:orientation="horizontal"
             android:layout_marginBottom="50dp"
-            />
+            >
+            <TextView
+                android:id="@+id/edit"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Edit"
+                android:textColor="@color/primary"
+                android:paddingRight="50dp"
+                android:textSize="18sp"
+                />
+            <TextView
+                android:id="@+id/delete"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Delete"
+                android:textColor="#e74c3c"
+                android:paddingRight="50dp"
+                android:textSize="18sp"
+                />
+        </LinearLayout>
 
 
     </LinearLayout>

@@ -10,11 +10,10 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.Todo">
-        <activity android:name=".MainTask"></activity>
-        <activity android:name=".ViewTask"></activity>
-        <activity android:name=".Lists">
-
-        </activity>
+        <activity android:name=".Edit"></activity>
+        <activity android:name=".MainTask" />
+        <activity android:name=".ViewTask" />
+        <activity android:name=".Lists"></activity>
         <activity android:name=".task" />
         <activity
             android:name=".MainActivity"
@@ -26,13 +25,9 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".InnerLists" >
-
-        </activity>
-        <activity android:name=".SignIn"/>
-        <activity android:name=".SignUp">
-
-        </activity>
+        <activity android:name=".InnerLists"></activity>
+        <activity android:name=".SignIn" />
+        <activity android:name=".SignUp"></activity>
     </application>
 
 </manifest>
